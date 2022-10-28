@@ -1,5 +1,3 @@
-await import('./src/env/server.mjs');
-
 /**
  * @template {import('next').NextConfig} T
  * @param {T} config - A generic parameter that flows through to the return type
@@ -13,9 +11,4 @@ function defineNextConfig(config) {
 export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    images: {
-      allowFutureImage: true,
-    },
-  },
 });
