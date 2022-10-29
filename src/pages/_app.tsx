@@ -5,6 +5,7 @@ import '../styles/globals.css';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      staleTime: 60,
       refetchOnWindowFocus: false,
     },
   },
