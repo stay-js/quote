@@ -5,8 +5,12 @@ import Link from 'next/link';
 import { TbAlertCircle, TbBrandTwitter, TbRefresh } from 'react-icons/tb';
 
 const Home: NextPage = () => {
-  const { data, isLoading, isError, refetch } = useQuery(['quote'], () =>
-    fetch('https://api.quotable.io/random').then((res) => res.json()),
+  const { data, isLoading, isError, refetch } = useQuery(
+    ['quote'],
+    () => fetch('https://api.quotable.io/random').then((res) => res.json()),
+    {
+      refetchOnWindowFocus: false,
+    },
   );
 
   return (
