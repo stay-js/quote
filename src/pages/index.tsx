@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <title>Stay - Quote</title>
       </Head>
 
-      <main className="flex h-screen flex-col p-4">
+      <main className="flex h-screen flex-col p-6">
         <div className="flex h-full flex-col items-center justify-center">
           {isLoading && (
             <svg className="h-8 w-8 animate-spin" fill="none" viewBox="0 0 24 24">
