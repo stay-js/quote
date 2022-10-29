@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://quote.znagy.hu
+
+# Sitemaps
+Sitemap: https://quote.znagy.hu/sitemap.xml

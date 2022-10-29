@@ -11,7 +11,37 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" />
+
+        <meta name="author" content="stay" />
+        <meta
+          name="keywords"
+          content="stay, Zétény, Nagy, Zétény Nagy, quote, random, random quote, daily quote, quote of the day, api, quotable, react, next, nextjs, react-query"
+        />
+
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" key="og_type" />
+        <meta property="og:site_name" content="Zétény Nagy" key="site_name" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="znagy.hu" />
+
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta name="rating" content="general" />
+
         <title>Stay - Quote</title>
+        <meta property="og:title" content="Stay - Quote" key="title" />
+        <meta name="twitter:title" content="Stay - Quote" />
+
+        <meta name="description" content="Random quote app. Stay - Quote<" />
+        <meta property="og:description" content="Random quote app. Stay - Quote<" />
+        <meta name="twitter:description" content="Random quote app. Stay - Quote<" />
+
+        <meta name="url" content="https://quote.znagy.hu/" />
+        <meta property="og:url" content="https://quote.znagy.hu/" />
+        <meta property="twitter:url" content="https://quote.znagy.hu/" />
       </Head>
 
       <main className="flex h-screen flex-col p-6">

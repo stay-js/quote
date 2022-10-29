@@ -11,5 +11,5 @@ html {
 }
 
 body {
-  @apply bg-zinc-900 text-white;
+  @apply overflow-x-hidden bg-zinc-900 text-white;
 }
