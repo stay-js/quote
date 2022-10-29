@@ -89,7 +89,7 @@ const Home: NextPage = () => {
 
         <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
           <button
-            className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-900"
+            className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-800"
             type="button"
             onClick={() => refetch()}
           >
@@ -99,7 +99,7 @@ const Home: NextPage = () => {
 
           {data && (
             <Link
-              className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-900"
+              className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-800"
               href={`https://twitter.com/intent/tweet?text="${data.content}" - ${data.author}`}
               target="_blank"
               rel="noopener noreferrer"
