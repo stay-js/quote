@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import { useQuery } from '@tanstack/react-query';
 import Head from 'next/head';
-import { TbAlertCircle, TbRefresh } from 'react-icons/tb';
+import Link from 'next/link';
+import { TbAlertCircle, TbBrandTwitter, TbRefresh } from 'react-icons/tb';
 
 const Home: NextPage = () => {
   const { data, isLoading, isError, refetch } = useQuery(['quote'], () =>
@@ -86,14 +87,28 @@ const Home: NextPage = () => {
           )}
         </div>
 
-        <button
-          type="button"
-          className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-900"
-          onClick={() => refetch()}
-        >
-          <TbRefresh size={18} />
-          <span className="font-semibold">New quote</span>
-        </button>
+        <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
+          <button
+            className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-900"
+            type="button"
+            onClick={() => refetch()}
+          >
+            <TbRefresh size={18} />
+            <span className="font-semibold">New quote</span>
+          </button>
+
+          {data && (
+            <Link
+              className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-900"
+              href={`https://twitter.com/intent/tweet?text="${data.content}" - ${data.author}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TbBrandTwitter size={18} />
+              <span className="font-semibold">Share on Twitter</span>
+            </Link>
+          )}
+        </div>
       </main>
     </>
   );
