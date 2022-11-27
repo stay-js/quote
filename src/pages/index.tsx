@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
-import { useQuery } from '@tanstack/react-query';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
 import { TbAlertCircle, TbBrandTwitter, TbRefresh } from 'react-icons/tb';
 
 const Home: NextPage = () => {
