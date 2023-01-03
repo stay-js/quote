@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { TbAlertCircle, TbBrandTwitter, TbRefresh } from 'react-icons/tb';
 
-const Home: NextPage = () => {
+const Page: NextPage = () => {
   const { data, isLoading, isError, refetch } = useQuery(['quote'], () =>
     fetch('https://api.quotable.io/random').then((res) => res.json()),
   );
@@ -114,4 +114,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Page;
