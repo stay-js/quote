@@ -6,7 +6,10 @@ import { TbAlertCircle, TbBrandTwitter, TbRefresh } from 'react-icons/tb';
 
 const Page: NextPage = () => {
   const { data, isLoading, isError, refetch } = useQuery(['quote'], () =>
-    fetch('https://api.quotable.io/random').then((res) => res.json()),
+    fetch('https://api.quotable.io/random').then((res) => {
+      if (!res.ok) throw res;
+      return res.json();
+    }),
   );
 
   return (
