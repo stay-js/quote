@@ -4,6 +4,18 @@ import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { TbAlertCircle, TbBrandTwitter, TbRefresh } from 'react-icons/tb';
 
+const validateData = (data: unknown): data is { author: string; content: string } => {
+  if (!data) return false;
+
+  return (
+    typeof data === 'object' &&
+    'author' in data &&
+    'content' in data &&
+    typeof data.author === 'string' &&
+    typeof data.content === 'string'
+  );
+};
+
 const Page: NextPage = () => {
   const { data, isLoading, isError, refetch } = useQuery(['quote'], () =>
     fetch('https://api.quotable.io/random').then((res) => {
@@ -66,14 +78,7 @@ const Page: NextPage = () => {
             </svg>
           )}
 
-          {isError && (
-            <div className="flex flex-col items-center gap-2">
-              <TbAlertCircle size={48} color="red" className="animate-bounce" />
-              Something went wrong... Please try again later.
-            </div>
-          )}
-
-          {data && (
+          {!isError && validateData(data) ? (
             <figure className="max-w-[75ch] font-medium">
               <blockquote>
                 <p className="text-2xl text-neutral-100">{data.content}</p>
@@ -87,6 +92,13 @@ const Page: NextPage = () => {
                 </cite>
               </figcaption>
             </figure>
+          ) : (
+            !isLoading && (
+              <div className="flex flex-col items-center gap-2">
+                <TbAlertCircle size={48} color="red" className="animate-bounce" />
+                Something went wrong... Please try again later.
+              </div>
+            )
           )}
         </div>
 
@@ -100,7 +112,7 @@ const Page: NextPage = () => {
             <span className="font-semibold">New quote</span>
           </button>
 
-          {data && (
+          {validateData(data) && (
             <Link
               className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-800"
               href={`https://twitter.com/intent/tweet?text="${data.content}" - ${data.author}`}
