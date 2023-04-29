@@ -1,7 +1,8 @@
 import type { AppType } from 'next/dist/shared/lib/utils';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Analytics } from '@vercel/analytics/react';
 
-import '../styles/globals.css';
+import '@styles/globals.css';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -14,6 +15,7 @@ const queryClient = new QueryClient({
 
 const App: AppType = ({ Component, pageProps }) => (
   <QueryClientProvider client={queryClient}>
+    <Analytics />
     <Component {...pageProps} />
   </QueryClientProvider>
 );

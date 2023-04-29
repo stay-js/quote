@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { TbAlertCircle, TbBrandTwitter, TbRefresh } from 'react-icons/tb';
+import { Meta } from '@components/Meta';
 
 const validateData = (data: unknown): data is { author: string; content: string } => {
   if (!data) return false;
@@ -17,6 +17,7 @@ const validateData = (data: unknown): data is { author: string; content: string 
 };
 
 const Page: NextPage = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { data, isLoading, isError, refetch } = useQuery(['quote'], () =>
     fetch('https://api.quotable.io/random').then((res) => {
       if (!res.ok) throw res;
@@ -26,39 +27,7 @@ const Page: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
-
-        <meta name="author" content="stay" />
-        <meta
-          name="keywords"
-          content="stay, Zétény, Nagy, Zétény Nagy, quote, random, random quote, daily quote, quote of the day, api, quotable, react, next, nextjs, react-query"
-        />
-
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" key="og_type" />
-        <meta property="og:site_name" content="Zétény Nagy" key="site_name" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="znagy.hu" />
-
-        <meta name="robots" content="index, follow" />
-        <meta name="language" content="English" />
-        <meta name="rating" content="general" />
-
-        <title>Stay - Quote</title>
-        <meta property="og:title" content="Stay - Quote" key="title" />
-        <meta name="twitter:title" content="Stay - Quote" />
-
-        <meta name="description" content="Random quote app. Stay - Quote<" />
-        <meta property="og:description" content="Random quote app. Stay - Quote<" />
-        <meta name="twitter:description" content="Random quote app. Stay - Quote<" />
-
-        <meta name="url" content="https://quote.znagy.hu/" />
-        <meta property="og:url" content="https://quote.znagy.hu/" />
-        <meta property="twitter:url" content="https://quote.znagy.hu/" />
-      </Head>
+      <Meta path="/" title="Stay - Quote" desc="Stay - Quote" />
 
       <main className="flex h-screen flex-col p-6">
         <div className="flex h-full flex-col items-center justify-center">
@@ -106,7 +75,7 @@ const Page: NextPage = () => {
           <button
             className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-800"
             type="button"
-            onClick={() => refetch()}
+            onClick={() => void refetch()}
           >
             <TbRefresh size={18} />
             <span className="font-semibold">New quote</span>
