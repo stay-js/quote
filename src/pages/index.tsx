@@ -27,7 +27,7 @@ const Page: NextPage = () => {
 
   return (
     <>
-      <Meta path="/" title="Stay - Quote" desc="Stay - Quote" />
+      <Meta path="/" title="Stay - Quote" description="Stay - Quote" />
 
       <main className="flex h-screen flex-col p-6">
         <div className="flex h-full flex-col items-center justify-center">
