@@ -6,20 +6,24 @@ export const Meta: React.FC<{
   desc: string;
 }> = ({ path, title, desc }) => (
   <Head>
+    <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
     <meta name="author" content="Zétény Nagy" />
+
     <meta
       name="keywords"
       content="quote, random quote, daily quote, quote of the day, quotable, stay, znagy, znagy.hu"
     />
 
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" key="og_type" />
-    <meta property="og:site_name" content="Stay - Quote" key="site_name" />
+    <meta name="theme-color" content="#18181b" />
 
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Stay - Quote" />
+
+    <meta name="twitter:card" content="summary" />
     <meta property="twitter:domain" content="quote.znagy.hu" />
 
     <meta name="robots" content="index, follow" />
@@ -27,7 +31,7 @@ export const Meta: React.FC<{
     <meta name="rating" content="general" />
 
     <title>{title}</title>
-    <meta property="og:title" content={title} key="title" />
+    <meta property="og:title" content={title} />
     <meta name="twitter:title" content={title} />
 
     <meta name="description" content={desc} />
