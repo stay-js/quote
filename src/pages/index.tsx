@@ -19,8 +19,8 @@ const validateData = (data: unknown): data is { author: string; content: string 
 const Page: NextPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { data, isLoading, isError, refetch } = useQuery(['quote'], () =>
-    fetch('https://api.quotable.io/random').then((res) => {
-      if (!res.ok) throw res;
+    fetch('https://api.quotable.io/random').then(async (res) => {
+      if (!res.ok) throw new Error(await res.text());
       return res.json();
     }),
   );
