@@ -5,11 +5,3 @@
 :root {
   color-scheme: dark;
 }
-
-html {
-  @apply antialiased;
-}
-
-body {
-  @apply overflow-x-hidden bg-zinc-900 text-white;
-}
