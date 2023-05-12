@@ -21,6 +21,8 @@ export const createMetadata = ({
   title,
   description,
 
+  applicationName: 'Stay - Quote',
+
   robots: {
     index: true,
     follow: true,
@@ -34,12 +36,12 @@ export const createMetadata = ({
   },
 
   openGraph: {
+    type: 'website',
     url: `https://quote.znagy.hu${path}`,
     title,
     description,
-    locale: 'en-US',
     siteName: 'Stay - Quote',
-    type: 'website',
+    locale: 'en-US',
   },
 
   twitter: {
