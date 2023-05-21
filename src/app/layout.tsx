@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
+import { ReactQueryWrapper } from '@components/ReactQueryWrapper';
 
 import '@styles/globals.css';
 
@@ -7,7 +8,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <body className="overflow-x-hidden bg-zinc-900 text-white">
       <Analytics />
 
-      {children}
+      <ReactQueryWrapper>{children}</ReactQueryWrapper>
     </body>
   </html>
 );
