@@ -1,14 +1,15 @@
 import { Analytics } from '@vercel/analytics/react';
-import { ReactQueryWrapper } from '@components/ReactQueryWrapper';
+import { ClientProviders } from './client-providers';
 
-import '@styles/globals.css';
+import '~/styles/globals.css';
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <html lang="en" className="antialiased">
     <body className="overflow-x-hidden bg-zinc-900 text-white">
-      <Analytics />
-
-      <ReactQueryWrapper>{children}</ReactQueryWrapper>
+      <ClientProviders>
+        <Analytics />
+        {children}
+      </ClientProviders>
     </body>
   </html>
 );

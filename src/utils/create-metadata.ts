@@ -17,6 +17,7 @@ export const createMetadata = ({
   keywords: 'quote, random quote, daily quote, quote of the day, quotable, stay, znagy, znagy.hu',
 
   themeColor: '#18181b',
+  colorScheme: 'dark',
 
   title,
   description,

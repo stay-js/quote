@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { TbBrandTwitter, TbRefresh } from 'react-icons/tb';
 import { z } from 'zod';
-import { ErrorPage, LoadingPage } from '@components/States';
+import { ErrorPage, LoadingPage } from '~/components/states';
 
 const responseSchema = z.object({
   author: z.string(),
@@ -14,7 +14,7 @@ const responseSchema = z.object({
 export const Quote: React.FC = () => {
   const { data, error, isLoading, refetch } = useQuery(['quote'], async () => {
     const res = await fetch('https://api.quotable.io/random');
-    if (!res.ok) throw new Error(await res.text());
+    if (!res.ok) throw new Error('Failed to fetch quote');
 
     return responseSchema.parse(await res.json());
   });
@@ -52,7 +52,9 @@ export const Quote: React.FC = () => {
         {data && (
           <Link
             className="flex w-fit items-center gap-2 rounded border px-4 py-2 transition-colors hover:bg-zinc-800"
-            href={`https://twitter.com/intent/tweet?text="${data.content}" - ${data.author}`}
+            href={encodeURI(
+              `https://twitter.com/intent/tweet?text="${data.content}" - ${data.author}`,
+            )}
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,2 +1,2 @@
-export * from './Error';
-export * from './Loading';
+export * from './error';
+export * from './loading';
